@@ -17,13 +17,19 @@ export default function Inicio() {
                     </div>
                     <div id="navbar-contenedor">
                         <ul id="navbar-links">
-                            <li>
-                                <Link to="/" className="link">Inicio</Link>
+                            <li> {/* esto no renderiza, ni idea porque */}
+                                <Link to="/" className="link"><i className="bi bi-house"></i></Link>
                             </li>
                             <li>
-                                <Link to="/catalogo" className="link">Catalogo</Link>
+                                <Link to="/catalogo" className="link"><i className="bi bi-list"></i></Link>
                             </li>
-                            <li><Link to="/contacto" className="link">Contacto</Link>
+                            <li>
+                                <Link to="/contacto" className="link"><i className="bi bi-envelope"></i></Link>
+                            </li>
+                            <li>
+                                <Link to="/carrito" className="link">
+                                    <i className="bi bi-cart"></i>
+                                </Link>
                             </li>
                         </ul>
                     </div>

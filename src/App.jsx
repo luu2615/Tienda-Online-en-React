@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Inicio from './pages/Inicio';
 import Catalogo from './pages/Catalogo';
 import Contacto from './pages/Contacto';
+import Carrito from './pages/Carrito';
 import DetalleProducto from './pages/DetalleProducto';
 import { useState } from 'react';
 import { Prev } from 'react-bootstrap/esm/PageItem';
@@ -65,7 +66,7 @@ function App() {
                 <Route path="/catalogo" element={<Catalogo agregarAlCarrito={agregarAlCarrito} />} />
                 <Route path="/contacto" element={<Contacto />} />
                 <Route path="/producto/:id" element={<DetalleProducto agregarAlCarrito={agregarAlCarrito} />} />
-                <route path="/carrito" element={<Carrito carrito={carrito} aumentarCantidad={aumentarCantidad} disminuirCantidad={disminuirCantidad} eliminarProducto={eliminarProducto} vaciarCarrito={vaciarCarrito} />} />
+                <Route path="/carrito" element={<Carrito carrito={carrito} aumentarCantidad={aumentarCantidad} disminuirCantidad={disminuirCantidad} eliminarProducto={eliminarProducto} vaciarCarrito={vaciarCarrito} />} />
             </Routes>
         </BrowserRouter>
     );
