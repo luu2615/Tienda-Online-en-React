@@ -33,7 +33,7 @@ export const productos = [
         precio: 550000,
         imagen: "/img/guitarra4.jpg",
         descripcion: "Cuerpo de tilo, diapasón de arce y dos micrófonos humbucker.",
-        stock: 2
+        stock: 0
     },
     {
         id: 5,
