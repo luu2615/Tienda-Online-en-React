@@ -15,44 +15,48 @@ function App() {
         setCarrito((prevCarrito) => {
             const existe = prevCarrito.find(item => item.id == producto.id);
             if (existe) {
-                if (existe.catidad < producto.stock) {
-                    return prevCarrito.map((item) => item.id == producto.id ? { ...item, cantidad: item.cantidad + 1 } : item);
+                if (existe.cantidad < producto.stock) {
+                    return prevCarrito.map((item) =>
+                        item.id === producto.id ? { ...item, cantidad: item.cantidad + 1 } : item
+                    );
+                } else {
+                    alert('No hay más stock disponible de este producto');
+                    return prevCarrito;
                 }
-            } else {
-                alert('No hay mas stock de este producto');
-                return prevCarrito;
             }
+            alert('Agregado al carrito')
             return [...prevCarrito, { ...producto, cantidad: 1 }];
-
-        })
+        });
     };
 
     const aumentarCantidad = (id) => {
-        setCarrito((prevCarrito) => {
+        setCarrito((prevCarrito) =>
             prevCarrito.map((item) => {
-                if (item.id == id) {
-                    return { ...item, cantidad: item.cantidad + 1 }
+                if (item.id === id) {
+                    if (item.cantidad < item.stock) {
+                        return { ...item, cantidad: item.cantidad + 1 };
+                    } else {
+                        alert('Limite de stock alcanzado');
+                    }
                 }
                 return item;
             })
-        })
+        );
     };
 
+
     const disminuirCantidad = (id) => {
-        setCarrito((prevCarrito) => {
-            prevCarrito.map((item) => {
-                if (item.id == id) {
-                    return { ...item, cantidad: item.cantidad - 1 }
-                }
-                return item;
-            })
-        })
+        setCarrito((prevCarrito) =>
+            prevCarrito
+                .map((item) =>
+                    item.id === id ? { ...item, cantidad: item.cantidad - 1 } : item
+                )
+                .filter((item) => item.cantidad > 0)
+        );
     };
 
     const eliminarProducto = (id) => {
-        setCarrito((prevCarrito) => {
-            prevCarrito.filter((item) => item.id !== id)
-        })
+        setCarrito((prevCarrito) => prevCarrito.filter((item) => item.id !== id));
     };
 
     const vaciarCarrito = () => {

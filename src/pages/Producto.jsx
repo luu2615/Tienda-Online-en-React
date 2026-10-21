@@ -3,7 +3,7 @@ import React from 'react';
 import { Card, Button, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-export default function ProductoCard({ producto, onAgregarAlCarrito }) {
+export default function ProductoCard({ producto, agregarAlCarrito }) {
     const sinStock = producto.stock === 0;
 
     return (
@@ -49,7 +49,7 @@ export default function ProductoCard({ producto, onAgregarAlCarrito }) {
                         variant={sinStock ? "secondary" : "primary"}
                         size="sm"
                         disabled={sinStock}
-                        onClick={() => onAgregarAlCarrito && onAgregarAlCarrito(producto)}
+                        onClick={() => agregarAlCarrito && agregarAlCarrito(producto)}
                     >
                         {sinStock ? "No disponible" : "Agregar al carrito"}
                     </Button>
