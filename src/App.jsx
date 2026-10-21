@@ -4,12 +4,21 @@ import Catalogo from './pages/Catalogo';
 import Contacto from './pages/Contacto';
 import Carrito from './pages/Carrito';
 import DetalleProducto from './pages/DetalleProducto';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Prev } from 'react-bootstrap/esm/PageItem';
+import BarraNavegacion from './components/Navbar'
 
 
 function App() {
-    const [carrito, setCarrito] = useState([]);
+    const [carrito, setCarrito] = useState(() => {
+        const guardado = localStorage.getItem('carrito');
+        return guardado ? JSON.parse(guardado) : [];
+    });
+    useEffect(() => {
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+    }, [carrito]);
+
+    const cantidadTotalCarrito = carrito.reduce((total, item) => total + item.cantidad, 0);
 
     const agregarAlCarrito = (producto) => {
         setCarrito((prevCarrito) => {
@@ -65,10 +74,10 @@ function App() {
 
     return (
         <BrowserRouter>
+            <BarraNavegacion cantidadCarrito={cantidadTotalCarrito} />
             <Routes>
                 <Route path="/" element={<Inicio />} />
                 <Route path="/catalogo" element={<Catalogo agregarAlCarrito={agregarAlCarrito} />} />
-                <Route path="/contacto" element={<Contacto />} />
                 <Route path="/producto/:id" element={<DetalleProducto agregarAlCarrito={agregarAlCarrito} />} />
                 <Route path="/carrito" element={<Carrito carrito={carrito} aumentarCantidad={aumentarCantidad} disminuirCantidad={disminuirCantidad} eliminarProducto={eliminarProducto} vaciarCarrito={vaciarCarrito} />} />
             </Routes>

@@ -178,5 +178,14 @@ export const productos = [
         imagen: "/img/guitarra4.jpg",
         descripcion: "Cuerpo de tilo, diapasón de arce y dos micrófonos humbucker.",
         stock: 2
-    }
+    },
+    {
+        id: 21,
+        nombre: "Harmonica",
+        categoria: "Harmonicas",
+        precio: 3,
+        imagen: "/img/Harmonica.jpg",
+        descripcion: "Cuerpo de roble.",
+        stock: 2
+    },
 ];

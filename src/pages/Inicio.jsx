@@ -5,36 +5,6 @@ import './Inicio.css';
 export default function Inicio() {
     return (
         <>
-            <header>
-                <nav id="navbar">
-                    <div id="navbar-titulo">
-                        <div>
-                            <img id="navbar-logo" src="/imagenes/icono.svg" alt="Logo" />
-                        </div>
-                        <div id="navbar-titulo-texto">
-                            <p className="stick-no-bills">pendiente</p>
-                        </div>
-                    </div>
-                    <div id="navbar-contenedor">
-                        <ul id="navbar-links">
-                            <li> {/* esto no renderiza, ni idea porque */}
-                                <Link to="/" className="link"><i className="bi bi-house"></i></Link>
-                            </li>
-                            <li>
-                                <Link to="/catalogo" className="link"><i className="bi bi-list"></i></Link>
-                            </li>
-                            <li>
-                                <Link to="/contacto" className="link"><i className="bi bi-envelope"></i></Link>
-                            </li>
-                            <li>
-                                <Link to="/carrito" className="link">
-                                    <i className="bi bi-cart"></i>
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </header>
             <main id="contenido-pagina">
                 <section id="banner">
                     <div id="banner-contenedor" className="flex-column">
