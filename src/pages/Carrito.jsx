@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Container, Alert, Row, Col, Table, Button, Card } from "react-bootstrap";
 import { Link } from 'react-router-dom';
+import FormularioCompra from '../components/FormularioCompra';
+
 
 export default function Carrito({
     carrito,
@@ -134,6 +136,11 @@ export default function Carrito({
                     </Card>
                 </Col>
             </Row>
+            <FormularioCompra
+                carrito={carrito}
+                totalGeneral={precioTotal}
+                onVaciarCarrito={vaciarCarrito}
+            />
         </Container>
     );
 }
