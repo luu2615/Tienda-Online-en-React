@@ -74,15 +74,13 @@ function App() {
 
     return (
         <HashRouter>
-            <BrowserRouter>
-                <BarraNavegacion cantidadCarrito={cantidadTotalCarrito} />
-                <Routes>
-                    <Route path="/" element={<Inicio />} />
-                    <Route path="/catalogo" element={<Catalogo agregarAlCarrito={agregarAlCarrito} />} />
-                    <Route path="/producto/:id" element={<DetalleProducto agregarAlCarrito={agregarAlCarrito} />} />
-                    <Route path="/carrito" element={<Carrito carrito={carrito} aumentarCantidad={aumentarCantidad} disminuirCantidad={disminuirCantidad} eliminarProducto={eliminarProducto} vaciarCarrito={vaciarCarrito} />} />
-                </Routes>
-            </BrowserRouter>
+            <BarraNavegacion cantidadCarrito={cantidadTotalCarrito} />
+            <Routes>
+                <Route path="/" element={<Inicio />} />
+                <Route path="/catalogo" element={<Catalogo agregarAlCarrito={agregarAlCarrito} />} />
+                <Route path="/producto/:id" element={<DetalleProducto agregarAlCarrito={agregarAlCarrito} />} />
+                <Route path="/carrito" element={<Carrito carrito={carrito} aumentarCantidad={aumentarCantidad} disminuirCantidad={disminuirCantidad} eliminarProducto={eliminarProducto} vaciarCarrito={vaciarCarrito} />} />
+            </Routes>
         </HashRouter>
     );
 }
