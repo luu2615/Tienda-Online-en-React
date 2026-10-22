@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, BrowserRouter, Routes, Route } from 'react-router-dom';
 import Inicio from './pages/Inicio';
 import Catalogo from './pages/Catalogo';
 import Contacto from './pages/Contacto';
@@ -73,15 +73,17 @@ function App() {
     };
 
     return (
-        <BrowserRouter>
-            <BarraNavegacion cantidadCarrito={cantidadTotalCarrito} />
-            <Routes>
-                <Route path="/" element={<Inicio />} />
-                <Route path="/catalogo" element={<Catalogo agregarAlCarrito={agregarAlCarrito} />} />
-                <Route path="/producto/:id" element={<DetalleProducto agregarAlCarrito={agregarAlCarrito} />} />
-                <Route path="/carrito" element={<Carrito carrito={carrito} aumentarCantidad={aumentarCantidad} disminuirCantidad={disminuirCantidad} eliminarProducto={eliminarProducto} vaciarCarrito={vaciarCarrito} />} />
-            </Routes>
-        </BrowserRouter>
+        <HashRouter>
+            <BrowserRouter>
+                <BarraNavegacion cantidadCarrito={cantidadTotalCarrito} />
+                <Routes>
+                    <Route path="/" element={<Inicio />} />
+                    <Route path="/catalogo" element={<Catalogo agregarAlCarrito={agregarAlCarrito} />} />
+                    <Route path="/producto/:id" element={<DetalleProducto agregarAlCarrito={agregarAlCarrito} />} />
+                    <Route path="/carrito" element={<Carrito carrito={carrito} aumentarCantidad={aumentarCantidad} disminuirCantidad={disminuirCantidad} eliminarProducto={eliminarProducto} vaciarCarrito={vaciarCarrito} />} />
+                </Routes>
+            </BrowserRouter>
+        </HashRouter>
     );
 }
 
