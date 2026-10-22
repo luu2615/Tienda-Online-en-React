@@ -4,7 +4,7 @@ import { NavLink, Link } from 'react-router-dom';
 
 export default function BarraNavegacion({ cantidadCarrito = 0 }) {
     return (
-        <Navbar bg="dark" variant="dark" expand="lg" sticky="top" className="shadow-sm">
+        <Navbar bg="warning" variant="warning" expand="lg" sticky="top" className="shadow-sm">
             <Container>
                 <Navbar.Brand as={Link} to="/" className="d-flex align-items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-boombox" viewBox="0 0 16 16">
@@ -20,21 +20,21 @@ export default function BarraNavegacion({ cantidadCarrito = 0 }) {
 
                 <Navbar.Collapse id="menu-navegacion">
                     <Nav className="ms-auto align-items-lg-center gap-2">
-                        <Nav.Link as={NavLink} to="/">
+                        <Nav.Link as={NavLink} to="/" className='btn btn-outline-light btn-sm px-3 ms-lg-2 mt-2 mt-lg-0 d-inline-flex align-items-center gap-2'>
                             Inicio
                         </Nav.Link>
 
-                        <Nav.Link as={NavLink} to="/catalogo">
+                        <Nav.Link as={NavLink} to="/catalogo" className='btn btn-outline-light btn-sm px-3 ms-lg-2 mt-2 mt-lg-0 d-inline-flex align-items-center gap-2'>
                             Productos
                         </Nav.Link>
                         <Nav.Link
                             as={NavLink}
                             to="/carrito"
-                            className="btn btn-outline-light btn-sm text-white px-3 ms-lg-2 mt-2 mt-lg-0 d-inline-flex align-items-center gap-2"
+                            className="btn btn-outline-light btn-sm px-3 ms-lg-2 mt-2 mt-lg-0 d-inline-flex align-items-center gap-2"
                         >
-                            <span>🛒 Carrito</span>
+                            <span>🛒</span>
                             {cantidadCarrito > 0 && (
-                                <Badge bg="danger" pill>
+                                <Badge bg="dark" pill>
                                     {cantidadCarrito}
                                 </Badge>
                             )}
